@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mehmet Sari - Cloud Engineer Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0f1117; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+    .container { max-width: 860px; margin: 0 auto; background: #1a1d27; border: 1px solid #2d3148; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.5); }
+    .header { background: linear-gradient(135deg, #1e2235 0%, #151829 100%); padding: 48px 48px 40px; border-bottom: 1px solid #2d3148; position: relative; overflow: hidden; }
+    .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%); border-radius: 50%; }
+    .header-name { font-size: 2.6rem; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+    .header-title { font-weight: 500; color: #818cf8; margin-bottom: 24px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-links a { color: #94a3b8; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.2s; }
+    .contact-links a:hover { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4); color: #a5b4fc; }
+    .body { padding: 40px 48px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; }
+    section { margin-bottom: 36px; }
+    .section-title { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #818cf8; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #2d3148; }
+    .profile-text { font-size: 0.9rem; line-height: 1.75; color: #94a3b8; }
+    .project-card { background: #1e2235; border: 1px solid #2d3148; border-radius: 10px; padding: 20px; margin-bottom: 14px; transition: border-color 0.2s; }
+    .project-card:hover { border-color: #4f46e5; }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 10px; }
+    .project-name { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; }
+    .badge { font-size: 0.65rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .badge-progress { background: rgba(234,179,8,0.15); color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); }
+    .badge-done { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .project-bullets { list-style: none; margin-bottom: 12px; }
+    .project-bullets li { font-size: 0.825rem; color: #94a3b8; padding: 3px 0 3px 14px; position: relative; line-height: 1.6; }
+    .project-bullets li::before { content: '▸'; position: absolute; left: 0; color: #6366f1; font-size: 0.7rem; top: 4px; }
+    .planned { color: #64748b !important; font-style: italic; }
+    .project-link a { font-size: 0.78rem; color: #6366f1; text-decoration: none; }
+    .project-link a:hover { color: #a5b4fc; text-decoration: underline; }
+    .skill-group { margin-bottom: 14px; }
+    .skill-label { font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; background: rgba(99,102,241,0.1); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.2); }
+    .skill-tag.muted { background: rgba(100,116,139,0.1); color: #64748b; border-color: rgba(100,116,139,0.2); }
+    .edu-school { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; margin-bottom: 2px; }
+    .edu-degree { font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px; }
+    .edu-meta { display: flex; flex-direction: column; gap: 4px; }
+    .edu-meta span { font-size: 0.78rem; color: #64748b; }
+    .gpa-highlight { display: inline-block; background: rgba(99,102,241,0.1); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); padding: 2px 8px; border-radius: 5px; font-weight: 600; font-size: 0.78rem; }
+    .lang-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2d3148; }
+    .lang-item:last-child { border-bottom: none; }
+    .lang-name { font-size: 0.85rem; color: #e2e8f0; font-weight: 500; }
+    .lang-level { font-size: 0.75rem; color: #64748b; }
+    .visitor-counter { text-align: center; padding: 12px; background: rgba(99,102,241,0.05); border: 1px solid rgba(99,102,241,0.15); border-radius: 8px; font-size: 0.78rem; color: #64748b; }
+    .visitor-counter span { color: #818cf8; font-weight: 600; }
+    @media (max-width: 680px) { .header { padding: 32px 24px; } .header-name { font-size: 2rem; } .body { grid-template-columns: 1fr; padding: 28px 24px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-name">Mehmet Sarı</div>
+      <div class="header-title">Aspiring Cloud Engineer · Computer Engineering Student</div>
+      <div class="contact-links">
+        <a href="tel:+905511965575">+90 551 196 55 75</a>
+        <a href="mailto:mehmet.ssari@outlook.com">mehmet.ssari@outlook.com</a>
+        <a href="https://www.linkedin.com/in/mehmet-sar%C4%B1-955a7b3b1" target="_blank">LinkedIn</a>
+        <a href="https://github.com/BatteriVoltas" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="main">
+        <section>
+          <div class="section-title">Profile</div>
+          <p class="profile-text">Computer Engineering student at Eskişehir Technical University, specializing in Cloud Infrastructure and DevOps practices. Actively gaining hands-on experience in Linux administration (Ubuntu/WSL 2) and AWS services. Passionate about automating software lifecycles and building scalable systems.</p>
+        </section>
+        <section>
+          <div class="section-title">Projects</div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Cloud Resume Challenge</div>
+              <span class="badge badge-progress">In Progress</span>
+            </div>
+            <ul class="project-bullets">
+              <li>Building a serverless resume website hosted on AWS S3 with static website hosting.</li>
+              <li>Configured and secured cloud storage via AWS Console and Bucket Policies.</li>
+              <li class="planned">Planned: API Gateway, Lambda (Python) visitor counter, CI/CD via GitHub Actions.</li>
+            </ul>
+            <div class="project-link"><a href="https://mehmet-sari-resume-2026.s3.eu-central-1.amazonaws.com/index.html" target="_blank">↗ Live Site</a></div>
+          </div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Real-Time Chat Application</div>
+              <span class="badge badge-done">Completed</span>
+            </div>
+            <ul class="project-bullets">
+              <li>Built a full-stack mobile chat app using Flutter for UI and Firebase for backend services.</li>
+              <li>Implemented user authentication with Firebase Authentication.</li>
+            </ul>
+            <div class="project-link"><a href="https://github.com/BatteriVoltas/Chat-App" target="_blank">↗ GitHub Repository</a></div>
+          </div>
+        </section>
+      </div>
+      <div class="sidebar">
+        <section>
+          <div class="section-title">Technical Skills</div>
+          <div class="skill-group">
+            <div class="skill-label">Cloud & Infrastructure</div>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS S3</span>
+              <span class="skill-tag">AWS IAM</span>
+              <span class="skill-tag">Firebase</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Operating Systems</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Ubuntu Linux</span>
+              <span class="skill-tag">WSL 2</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Tools</div>
+            <div class="skill-tags">
+              <span class="skill-tag muted">Docker (Learning)</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Programming</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Dart</span>
+              <span class="skill-tag">HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Frameworks</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Flutter</span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="section-title">Education</div>
+          <div class="edu-school">Eskişehir Technical University</div>
+          <div class="edu-degree">B.Sc. Computer Engineering</div>
+          <div class="edu-meta">
+            <span>Expected Graduation: 2027</span>
+            <span>GPA: <span class="gpa-highlight">3.25 / 4.00</span></span>
+          </div>
+        </section>
+        <section>
+          <div class="section-title">Languages</div>
+          <div class="lang-item">
+            <span class="lang-name">Turkish</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Intermediate (B1–B2)</span>
+          </div>
+        </section>
+        <div class="visitor-counter">
+           Visitors: <span id="counter">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

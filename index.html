@@ -80,7 +80,8 @@
             <ul class="project-bullets">
               <li>Building a serverless resume website hosted on AWS S3 with static website hosting.</li>
               <li>Configured and secured cloud storage via AWS Console and Bucket Policies.</li>
-              <li class="planned">Planned: API Gateway, Lambda (Python) visitor counter, CI/CD via GitHub Actions.</li>
+              <li>Implemented API Gateway and Lambda (Python) visitor counter.</li>
+              <li class="planned">Planned: CI/CD via GitHub Actions.</li>
             </ul>
             <div class="project-link"><a href="https://mehmetsari.cloud" target="_blank">↗ Live Site</a></div>
           </div>
@@ -164,5 +165,23 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const apiUrl = "https://7wxhgqjtda.execute-api.eu-central-1.amazonaws.com/prod/counter";
+
+    async function updateCounter() {
+        try {
+            let response = await fetch(apiUrl);
+            let data = await response.json();
+            
+            document.getElementById("counter").innerText = data.body;
+        } catch (error) {
+            console.error("Counter value can not be fetched:", error);
+            document.getElementById("counter").innerText = "Not counted";
+        }
+    }
+
+    updateCounter();
+  </script>
 </body>
 </html>

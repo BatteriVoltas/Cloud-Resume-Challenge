@@ -26,7 +26,8 @@ jobs:
         --exclude ".git/*" \
         --exclude ".github/*" \
         --delete
-        - name: Clear CloudFront Cache
+
+    - name: CloudFront Cache Invalidation
       env:
         DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
       run: |
